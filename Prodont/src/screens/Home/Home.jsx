@@ -1,12 +1,15 @@
-import './App.css'
-import { NavigationBar,CardHome} from './Components'
-
+import { NavigationBar,FeedCard,SecondTitle,ThirdTitle} from "../../Components/index"
 export function Home() {
   
   return (
     <>
+
     <NavigationBar/>
-    <CardHome/>
+    <FeedCard/>
+    <SecondTitle SecondTitle="Servicios"/>
+    <ThirdTitle ThirdTitle="Articulos"/>
+    
+    
 
     </>
   )

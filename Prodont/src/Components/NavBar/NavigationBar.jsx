@@ -3,35 +3,51 @@ import {Logo} from "./Logo.jsx";
 
 export  function NavigationBar() {
   return (
-    <Navbar flex maxWidth="full" position="sticky" justify="end" >
+    <Navbar className="bg-gradient-to-r from-purple-200 via-blue-200 to-cyan-400 bg-opacity-10 backdrop-blur-sm rounded" 
+            flex maxWidth="full" 
+            position="sticky" 
+            justify="end" 
+            isBlurred="true">
       <NavbarBrand>
         <Logo />
-        <p className="font-bold text-inherit">ACME</p>
       </NavbarBrand>
-      <NavbarContent className="hidden sm:flex gap-4" justify="center">
+      <NavbarContent className="hidden sm:flex gap-4" 
+                     justify="center">
         <NavbarItem>
-          <Link color="foreground" href="#">
-            Features
+          <Link className="text-purple-700 font-bold" href="#">
+            Principal
           </Link>
         </NavbarItem>
         <NavbarItem isActive>
-          <Link href="#" aria-current="page">
-            Customers
+          <Link className="text-purple-500" href="#" aria-current="page">
+            Noticias
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color="foreground" href="#">
-            Integrations
+          <Link className="text-purple-500" href="#">
+            Servicios
           </Link>
         </NavbarItem>
       </NavbarContent>
       <NavbarContent justify="end">
-        <NavbarItem className="hidden lg:flex">
-          <Link href="#">Login</Link>
-        </NavbarItem>
         <NavbarItem>
-          <Button as={Link} color="primary" href="#" variant="flat">
-            Sign Up
+          <Button as={Link} 
+                  color="primary" 
+                  href="#" 
+                  variant="flat">
+          <svg viewBox="0 0 20 20"   
+               xmlns="http://www.w3.org/2000/svg" 
+               fill="none"  
+               stroke="#2B0496"><g  
+               id="SVGRepo_bgCarrier"  
+               strokeWidth="0"></g><g  
+               id="SVGRepo_tracerCarrier"  
+               strokeLinecap="round"  
+               strokeLinejoin="round"></g><g  
+               id="SVGRepo_iconCarrier"> <path  
+               fill="#2B0496"  
+               fillRule="evenodd"  
+               d="M19 4a1 1 0 01-1 1H2a1 1 0 010-2h16a1 1 0 011 1zm0 6a1 1 0 01-1 1H2a1 1 0 110-2h16a1 1 0 011 1zm-1 7a1 1 0 100-2H2a1 1 0 100 2h16z"></path> </g></svg> 
           </Button>
         </NavbarItem>
       </NavbarContent>

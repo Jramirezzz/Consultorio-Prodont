@@ -1,2 +1,7 @@
 export * from './NavBar/NavigationBar'
 export * from './Card/Card'
+export * from './Title/Title'
+export * from './FeedCard/FeedCard'
+export * from './SecondTitle/SecondTitle'
+export * from './ThirdTitle/ThirdTitle'
+export * from './CardServices/CardServices'
