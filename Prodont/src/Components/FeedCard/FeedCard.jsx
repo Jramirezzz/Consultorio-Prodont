@@ -17,7 +17,7 @@ export function FeedCard() {
                 
                 <div className="grid grid-cols-subgrid gap-4 col-span-1 justify-items-center">
                         <img className="w-80 z-20" 
-                            src="../../public/assets/LandingPage/LandingPhoto.png" 
+                            src="/assets/LandingPage/LandingPhoto.png" 
                             alt="Landing Photo" />
 
                             <div className="BackgoundBlur z-10 bg-opacity-10 rounded-lg shadow-md p-4 w-96 h-72 absolute top-72 ">
