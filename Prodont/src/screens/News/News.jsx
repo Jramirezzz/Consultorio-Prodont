@@ -1,8 +1,8 @@
-import { NavigationBar,ThirdTitle,CardServices} from "../../Components"
+import {ThirdTitle,CardServices} from "../../Components"
 export function News(){
     return(
         <>
-        <NavigationBar/>
+        
         <ThirdTitle ThirdTitle="Noticias"/>
         <CardServices title ="Ortodoncia" 
                       image= "/assets/ServiceCard/Ortodoncia.jpg" 

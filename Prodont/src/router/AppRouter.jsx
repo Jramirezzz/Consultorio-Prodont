@@ -1,21 +1,21 @@
 import { Route, Routes } from "react-router-dom"
-import { Aboutus, Landing } from "../screens"
-import { Footer, NavigationBar } from "../components"
+import { News, Home, Services} from "../screens/index"
+import { NavigationBar} from "../Components/index"
 
 
 export const AppRouter = () => {
   return (
 
     <>
-    <NavigationBar />
+    <NavigationBar/>
     <section>
     <Routes>
-        <Route path="/" element={<Landing />}/>
-        <Route path="/aboutus" element={<Aboutus />}/>
-        
+        <Route path="/" element={<Home/>}/>
+        <Route path="/news" element={<News/>}/>
+        <Route path="/Services"element= {<Services/>}  />
     </Routes>
     </section>
-    <Footer />
+    
     </>
   )
 }

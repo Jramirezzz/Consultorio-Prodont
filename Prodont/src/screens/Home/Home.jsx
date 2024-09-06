@@ -1,9 +1,8 @@
-import { NavigationBar, FeedCard, SecondTitle, ThirdTitle, CardServicesHome } from "../../Components/index";
+import { FeedCard, SecondTitle, ThirdTitle, CardServicesHome } from "../../Components/index";
 
 export function Home() {
   return (
     <>
-      <NavigationBar />
       <FeedCard />
       <SecondTitle SecondTitle="Servicios" />
 

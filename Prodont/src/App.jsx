@@ -1,14 +1,12 @@
 import './App.css'
-import { Home,Services,News } from './screens'
+import { AppRouter } from './router/AppRouter'
 
 
 function App() {
   
   return (
     <>
-    { /*<Home/> */}
-    { /* <Services/> */} 
-    <News/> 
+    <AppRouter/>
     </>
   )
 }
