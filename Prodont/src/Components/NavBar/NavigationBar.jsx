@@ -16,7 +16,7 @@ export function NavigationBar() {
       </NavbarBrand>
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
         <NavbarItem>
-          <RouterLink to="/" className="text-purple-700 font-bold">
+          <RouterLink to="/" className="text-purple-500 font-bold">
             Home
           </RouterLink>
         </NavbarItem>

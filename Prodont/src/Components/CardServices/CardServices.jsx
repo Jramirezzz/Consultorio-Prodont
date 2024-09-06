@@ -5,7 +5,7 @@ export function CardServices(props) {
     return (
       <>
         <section className="flex justify-center mb-28">
-          <div className="flex flex-row bg-gradient-to-r from-blue-500/25 via-purple-500/25 to-pink-500/25 w-3/5 h-64 rounded-md m-0 ">
+          <div className="flex flex-row bg-gradient-to-r from-blue-500/25 via-purple-500/25 to-pink-500/25 w-3/5 h-64 rounded-md m-0">
             
             <div className="flex justify-center items-center w-1/3">
               <img className="w-60 z-20 rounded-lg" src={image} alt="Image" />

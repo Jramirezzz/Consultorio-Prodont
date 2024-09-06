@@ -5,7 +5,7 @@ export function FeedCard() {
         
         <section>
              
-            <div className="grid grid-cols-2 justify-items-start place-content-center mt-10 items-center">
+            <div className="grid grid-cols-2 justify-items-start place-content-center mt-10 items-center mb-40">
                 <div className="flex flex-col justify-start">
                     <Titles title={"Bienvenido a Prodont"}/> 
                     <p className="text-left mt-4 font-FuturaBook text-zinc-900">
