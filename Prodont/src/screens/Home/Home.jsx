@@ -33,7 +33,7 @@ export function Home() {
         />
       </div>
 
-      <ThirdTitle ThirdTitle="Artículos" />
+      <ThirdTitle ThirdTitle="Noticias" />
 
       <div className="flex flex-wrap justify-center gap-6 p-4">
         <CardServicesHome

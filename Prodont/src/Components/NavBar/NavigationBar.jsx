@@ -12,7 +12,7 @@ export function NavigationBar() {
       isBlurred={true}
     >
       <NavbarBrand>
-        <Logo />
+        <Logo/>
       </NavbarBrand>
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
         <NavbarItem>
@@ -21,13 +21,13 @@ export function NavigationBar() {
           </RouterLink>
         </NavbarItem>
         <NavbarItem>
-          <RouterLink to="/news" className="text-purple-500" aria-current="page">
-            Noticias
+          <RouterLink to="/services" className="text-purple-500" aria-current="page">
+            Servicios
           </RouterLink>
         </NavbarItem>
         <NavbarItem>
-          <RouterLink to="/services" className="text-purple-500">
-            Servicios
+          <RouterLink to="/news" className="text-purple-500">
+            Noticias
           </RouterLink>
         </NavbarItem>
       </NavbarContent>
