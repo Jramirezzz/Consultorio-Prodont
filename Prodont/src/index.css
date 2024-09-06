@@ -31,7 +31,7 @@ a:hover {
 }
 
 body {
-  background-image:url("../public/assets/Background/Background.png");
+  background-image:url("../assets/Background/Background.png");
   margin: 0;
   display: flex;
   place-items: center;
