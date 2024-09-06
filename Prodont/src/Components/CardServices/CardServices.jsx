@@ -10,14 +10,14 @@ export function CardServices(props) {
             <div className="flex justify-center items-center w-1/3">
               <img className="w-60 z-20 rounded-lg" src={image} alt="Image" />
             </div>
-  
+            
             <div className="flex flex-col justify-center items-start w-2/3 p-4">
+              <div>
               <FourTitle FourTitle={title}/>
-              
-             
               <p className=" text-left text-wrap font-FuturaBook text-violet-800">
                 {Description}
               </p>
+              </div>
             </div>
           </div>
         </section>
