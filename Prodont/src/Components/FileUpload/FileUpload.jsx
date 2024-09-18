@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { storage, db } from '../../Services/firebase-config'; 
-import { ref, uploadBytes } from 'firebase/storage';
+import { ref as storageRef, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { collection, addDoc } from 'firebase/firestore';
 
 export const FileUpload = () => {
@@ -11,10 +11,7 @@ export const FileUpload = () => {
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(null);
 
-  const handleFileChange = (e) => {
-    const selectedFile = e.target.files[0];
-    setFile(selectedFile);
-  };
+  const handleFileChange = (e) => setFile(e.target.files[0]);
 
   const handleSubmit = async () => {
     if (!file || !title || !description) {
@@ -27,70 +24,56 @@ export const FileUpload = () => {
     setSuccess(null);
 
     try {
-      // Subir el archivo a Firebase Storage
-      const storageRef = ref(storage, `uploads/${file.name}`);
-      await uploadBytes(storageRef, file);
+      const fileRef = storageRef(storage, `uploads/${file.name}`);
+      await uploadBytes(fileRef, file);
 
-      // Guardar la información del archivo en Firestore
-      const docRef = collection(db, 'files');
-      await addDoc(docRef, {
+      const downloadURL = await getDownloadURL(fileRef);
+
+      await addDoc(collection(db, 'uploads'), {
         title,
         description,
         fileName: file.name,
-        createdAt: new Date()
+        filePath: `uploads/${file.name}`,
+        downloadURL
       });
 
-      setSuccess("Archivo subido y datos guardados correctamente.");
-      setFile(null);
-      setTitle('');
-      setDescription('');
+      setSuccess("Archivo y metadatos subidos exitosamente.");
     } catch (err) {
-      setError("Error al subir el archivo. Inténtalo de nuevo.");
-      console.error(err);
+      setError(`Error al subir el archivo o los metadatos: ${err.message}`);
     } finally {
       setUploading(false);
     }
   };
 
   return (
-    <div className="flex flex-col items-center space-y-4">
-      <h3 className="text-xl font-semibold text-violet-800">Formulario de carga de archivos</h3>
-
-      {error && <p className="text-red-600">{error}</p>}
-      {success && <p className="text-green-600">{success}</p>}
-
-      <input
-        type="text"
-        placeholder="Título"
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
-        className="w-64 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-violet-400"
+    <div className="max-w-md mx-auto mt-10 p-4 border rounded-lg shadow-lg">
+      <input 
+        type="file" 
+        onChange={handleFileChange} 
+        className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none"
       />
-
-      <textarea
-        placeholder="Descripción"
-        value={description}
-        onChange={(e) => setDescription(e.target.value)}
-        className="w-64 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-violet-400"
+      <input 
+        type="text" 
+        value={title} 
+        onChange={(e) => setTitle(e.target.value)} 
+        placeholder="Título" 
+        className="mt-4 block w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:border-blue-300"
       />
-
-      <label className="w-36 cursor-pointer px-4 py-2 bg-teal-500 text-white font-semibold rounded-lg shadow-md hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-teal-400 focus:ring-opacity-75">
-        <input
-          type="file"
-          accept="image/*"
-          className="hidden"
-          onChange={handleFileChange}
-        />
-        Elegir archivo
-      </label>
-
-      <button
-        className="w-36 px-4 py-2 bg-violet-500 text-white font-semibold rounded-lg shadow-md hover:bg-violet-700 focus:outline-none focus:ring-2 focus:ring-violet-400 focus:ring-opacity-75"
-        disabled={!file || uploading}
-        onClick={handleSubmit}
+      <textarea 
+        value={description} 
+        onChange={(e) => setDescription(e.target.value)} 
+        placeholder="Descripción" 
+        className="mt-4 block w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:border-blue-300"
+      ></textarea>
+      <button 
+        onClick={handleSubmit} 
+        disabled={uploading} 
+        className="mt-4 w-full px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 disabled:opacity-50"
       >
-        {uploading ? 'Subiendo...' : 'Subir Archivo'}
+        {uploading ? 'Subiendo...' : 'Subir'}
       </button>
+      {error && <p className="mt-4 text-red-500">{error}</p>}
+      {success && <p className="mt-4 text-green-500">{success}</p>}
     </div>
   );
 };
