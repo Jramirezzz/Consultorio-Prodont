@@ -14,18 +14,12 @@ export function NavigationBar() {
 
   return (
     <Navbar 
-      className="bg-gradient-to-r from-purple-200 via-blue-200 to-cyan-400 bg-opacity-10 backdrop-blur-sm rounded" 
-      maxWidth="1%" 
-      position="sticky" 
-      justify="end" 
-      style={{ margin: '0 auto' }} 
-      isBlurred={true}
+      className="bg-gradient-to-r from-purple-200 via-blue-200 to-cyan-400 bg-opacity-10 backdrop-blur-sm rounded  max-w-screen-xl mx-auto "
+       
     >
       <NavbarBrand>
         <Logo />
       </NavbarBrand>
-
-      {/* Contenido del Navbar para pantallas grandes */}
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
         {menuItems.map(item => (
           <NavbarItem key={item.label}>

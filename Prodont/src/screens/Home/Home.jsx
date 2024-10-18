@@ -3,9 +3,12 @@ import { FeedCard, SecondTitle, ThirdTitle, CardServicesHome } from "../../Compo
 export function Home() {
   return (
     <>
+    <div className="max-w-screen-xl mx-auto p-4">
       <FeedCard />
       <SecondTitle SecondTitle="Servicios" />
+      </div>
 
+      <div className="max-w-screen-xl mx-auto p-4">
       <div className="flex flex-wrap justify-center gap-6 p-4">
         <CardServicesHome
           title="Ortodoncia"
@@ -32,9 +35,10 @@ export function Home() {
           image="/assets/ServiceCard/Odontologia-General.jpg"
         />
       </div>
+      </div>
 
       <ThirdTitle ThirdTitle="Noticias" />
-
+      <div className="max-w-screen-xl mx-auto p-4">
       <div className="flex flex-wrap justify-center gap-6 p-4">
         <CardServicesHome
           title="Ortodoncia"
@@ -60,6 +64,7 @@ export function Home() {
           title="Odontología General"
           image="/assets/ServiceCard/Odontologia-General.jpg"
         />
+      </div>
       </div>
     </>
   );
