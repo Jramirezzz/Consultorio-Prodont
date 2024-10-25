@@ -37,6 +37,10 @@ export const FileUpload = () => {
         downloadURL
       });
 
+      // Limpia los campos después de una carga exitosa
+      setFile(null);
+      setTitle('');
+      setDescription('');
       setSuccess("Archivo y metadatos subidos exitosamente.");
     } catch (err) {
       setError(`Error al subir el archivo o los metadatos: ${err.message}`);
