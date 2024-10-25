@@ -30,7 +30,6 @@ export function NavigationBar() {
         ))}
       </NavbarContent>
 
-      {/* Contenido del Navbar para la sección derecha */}
       <NavbarContent justify="end">
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
@@ -39,7 +38,6 @@ export function NavigationBar() {
         />
       </NavbarContent>
 
-      {/* Menú desplegable para dispositivos móviles */}
       {isMenuOpen && (
         <NavbarMenu className="sm:hidden">
           {menuItems.map((item) => (

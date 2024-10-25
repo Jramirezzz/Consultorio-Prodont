@@ -26,18 +26,20 @@ export const CardNews = () => {
   return (
     <section className="flex flex-wrap justify-center gap-4 mb-28">
       {data.map((newsData, index) => (
-        <div key={index} className="flex flex-row bg-gradient-to-r from-blue-500/25 via-purple-500/25 to-pink-500/25 w-3/5 h-64 rounded-md">
-          
+        <div 
+          key={index} 
+          className="flex flex-col md:flex-row bg-gradient-to-r from-blue-500/25 via-purple-500/25 to-pink-500/25 w-full md:w-3/5 h-auto md:h-64 rounded-md overflow-hidden shadow-lg"
+        >
           {/* Imagen a la izquierda */}
-          <div className="flex justify-center items-center w-1/3">
+          <div className="flex justify-center items-center w-full md:w-1/3">
             <img className="w-60 h-auto rounded-lg" src={newsData.downloadURL} alt={newsData.fileName || "Imagen"} />
           </div>
 
           {/* Contenido a la derecha */}
-          <div className="flex flex-col justify-center w-2/3 p-4">
+          <div className="flex flex-col justify-center w-full md:w-2/3 p-4">
             {/* Título */}
             <FourTitle FourTitle={newsData.title} />
-            
+
             {/* Descripción */}
             <p className="text-gray-700 mt-2">{newsData.description}</p>
 

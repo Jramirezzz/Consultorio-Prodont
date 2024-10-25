@@ -21,15 +21,24 @@ export const CardNewsHome = () => {
 
     fetchData();
   }, []); 
-    return (
-        <div className="flex flex-wrap p-4">
-            {data.map((newsData, index) => (
-            <div key={index} className="flex bg-gradient-to-r from-purple-200/50 via-blue-200/50 to-cyan-400/50 rounded shadow-md p-4 rounded-lg m-8">
-                <div className="flex flex-col items-center w-64 h-56">
-                    <img className="w-60 h-40 mb-4 rounded-lg object-cover" src={newsData.downloadURL} alt={newsData.fileName || "Imagen"} />
-                    <h3 className="text-violet-800 font-FuturaBook text-lg text-center">{newsData.title}</h3>
-                </div>   
-            </div>
-            ))}
-        </div>    
-    )}
+
+  return (
+    <div className="flex flex-wrap justify-center p-4">
+      {data.map((newsData, index) => (
+        <div 
+          key={index} 
+          className="flex flex-col bg-gradient-to-r from-purple-200/50 via-blue-200/50 to-cyan-400/50 rounded shadow-md p-4 m-4 w-full sm:w-64 m-8"
+        >
+          <div className="flex flex-col items-center">
+            <img 
+              className="w-60 h-40 mb-4 rounded-lg object-cover" 
+              src={newsData.downloadURL} 
+              alt={newsData.fileName || "Imagen"} 
+            />
+            <h3 className="text-violet-800 font-FuturaBook text-lg text-center">{newsData.title}</h3>
+          </div>   
+        </div>
+      ))}
+    </div>    
+  );
+}
